@@ -103,6 +103,7 @@ public class SnowboardingGameApp {
 			if (p.getHealth() <= 12) {
 				System.out.println(
 						"Sorry,You lost the Game! You were too intoxicated! You crashed into a Wild Bear, requiring medical attention!");
+				System.out.println(Character.toChars(0x1F43B));
 				endGame();
 			}
 			responseCalculation(userResponseLevel, p);
