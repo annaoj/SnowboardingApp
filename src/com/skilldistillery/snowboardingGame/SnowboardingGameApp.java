@@ -6,6 +6,8 @@ public class SnowboardingGameApp {
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		displayMountains();
+
 		startGame();
 	}
 
@@ -13,12 +15,10 @@ public class SnowboardingGameApp {
 		String input;
 		boolean go = true;
 		while (go) {
-			System.out.println("Start");
-			System.out.print("Hello, welcome to the Death Mountain!!! ");
-			System.out.println(Character.toChars(0x1F304));
-			System.out.print("What a beautiful day to snowboard. ");
+			
+			System.out.print("  What a beautiful day to snowboard! ");
 			System.out.println(Character.toChars(0x1F3C2));
-			System.out.println("Would you like to hit the slopes? type 'Y' for yes or'N'\n ");
+			System.out.print("  Would you like to hit the slopes? type 'Y' for yes or'N' : ");
 			input = sc.next();
 
 			if (input.equalsIgnoreCase("Y")) {
@@ -46,18 +46,21 @@ public class SnowboardingGameApp {
 		levelNames[1] = t;
 		levelNames[2] = og;
 
-		System.out.println("---------level 1---------");
+		System.out.println("\n\t\t\t------------------level 1------------------\n");
+		pub.showPub();
 		System.out.println("After riding for a while you saw the pub and you decided to stop by. ");
 		System.out.println("What would you like to order? Choose from the following: type 1,2,3: ");
 
 		choiceCalculator(p, levelNames[0], "1) Beer\n" + "2) Food\n" + "3) Water\n");
 
-		System.out.println("---------level 2---------");
+		System.out.println("\n\t\t\t------------------level 2------------------\n");
+		t.showTrail();
 		System.out.println(
 				"You continue down the slope and you come to a fork in the road. Choose your trail difficulty. Type 1,2,3 :  ");
 		choiceCalculator(p, levelNames[1], "1) Black\n" + "2) Blue\n" + "3) Green\n");
 
-		System.out.println("---------level 3---------");
+		System.out.println("\n\t\t\t------------------level 3------------------\n");
+		og.showGuest();
 		System.out.println("You see another guest guest speeding towards your path.");
 		System.out.println("Which direction would like to go? ");
 		choiceCalculator(p, levelNames[2], "1) Turn Left\n" + "2) Straigt\n" + "3) Turn right\n");
@@ -66,7 +69,7 @@ public class SnowboardingGameApp {
 
 	public static void choiceCalculator(Player p, Obstacle levelNames, String question) {
 
-		System.out.println(question);
+		System.out.print(question);
 		int userResponseLevel = sc.nextInt();
 
 		if (levelNames instanceof Pub) {
@@ -115,6 +118,7 @@ public class SnowboardingGameApp {
 
 			} else if (userResponseLevel == 3) {
 				System.out.println("Yayyyyyyy you WON !!!");
+				displayMedal();
 			} else {
 				System.out.println("Wrong Choice!");
 			}
@@ -131,7 +135,6 @@ public class SnowboardingGameApp {
 			p.setHealth(tempHelth);
 			System.out.println("Your health is " + tempHelth);
 		} else if (response == 2) {
-
 			int tempHelth = p.getHealth() + 1;
 			p.setHealth(tempHelth);
 			System.out.println("Your health is " + tempHelth);
@@ -146,6 +149,51 @@ public class SnowboardingGameApp {
 		System.out.println("END");
 		System.exit(0);
 		sc.close();
+	}
+	
+	public static void displayMountains() {
+		System.out.print("\t\t\t\tHello and Welcome to the Death Mountain!!!");
+		System.out.println(Character.toChars(0x1F304));
+		System.out.print(" \n\n\n");
+
+		System.out.println("                  _\n" + 
+				"                     /#\\\n" + 
+				"                    /###\\     /\\\n" + 
+				"                   /  ###\\   /##\\  /\\\n" + 
+				"                  /      #\\ /####\\/##\\\n" + 
+				"                 /  /      /   # /  ##\\             _       /\\\n" + 
+				"               // //  /\\  /    _/  /  #\\ _         /#\\    _/##\\    /\\\n" + 
+				"              // /   /  \\     /   /    #\\ \\      _/###\\_ /   ##\\__/ _\\\n" + 
+				"             /  \\   / .. \\   / /   _   { \\ \\   _/       / //    /    \\\\\n" + 
+				"     /\\     /    /\\  ...  \\_/   / / \\   } \\ | /  /\\  \\ /  _    /  /    \\ /\\\n" + 
+				"  _ /  \\  /// / .\\  ..%:.  /... /\\ . \\ {:  \\\\   /. \\     / \\  /   ___   /  \\\n" + 
+				" /.\\ .\\.\\// \\/... \\.::::..... _/..\\ ..\\:|:. .  / .. \\\\  /.. \\    /...\\ /  \\ \\\n" + 
+				"/...\\.../..:.\\. ..:::::::..:..... . ...\\{:... / %... \\\\/..%. \\  /./:..\\__   \\\n" + 
+				" .:..\\:..:::....:::;;;;;;::::::::.:::::.\\}.....::%.:. \\ .:::. \\/.%:::.:..\\\n" + 
+				"::::...:::;;:::::;;;;;;;;;;;;;;:::::;;::{:::::::;;;:..  .:;:... ::;;::::..\n" + 
+				";;;;:::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;];;;;;;;;;;::::::;;;;:.::;;;;;;;;:..\n" + 
+				";;;;;;;;;;;;;;ii;;;;;;;;;;;;;;;;;;;;;;;;[;;;;;;;;;;;;;;;;;;;;;;:;;;;;;;;;;;;;\n" + 
+				";;;;;;;;;;;;;;;;;;;iiiiiiii;;;;;;;;;;;;;;};;ii;;iiii;;;;i;;;;;;;;;;;;;;;ii;;;\n");
+		
+				System.out.println();
+				System.out.println();
+}
+	public static void displayMedal() {
+		System.out.println("@@@@|     |####|\n" + 
+				"|@@@@|     |####|\n" + 
+				"|@@@@|     |####|\n" + 
+				"\\@@@@|     |####/\n" + 
+				" \\@@@|     |###/\n" + 
+				"  `@@|_____|##'\n" + 
+				"       (O)\n" + 
+				"    .-'''''-.\n" + 
+				"  .'  * * *  `.\n" + 
+				" :  *       *  :\n" + 
+				": DEATH MOUNTAIN :\n" + 
+				": ~ A W A R D ~ :\n" + 
+				" :  *       *  :\n" + 
+				"  `.  * * *  .'\n" + 
+				"    `-.....-'\n");
 	}
 
 }
